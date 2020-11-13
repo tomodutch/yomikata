@@ -14,4 +14,4 @@ export const Sentence = {
 export const findSentences = ({ character }) =>
   db.kanji
     .findOne({ where: { character } })
-    .KanjiSentence({ take: 10, include: { sentence: true } })
+    .KanjiSentence({ take: 100, include: { sentence: true } })

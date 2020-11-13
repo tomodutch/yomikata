@@ -3,11 +3,12 @@ export const schema = gql`
     id: String!
     word: String!
     furigana: String!
-    jlpt: Int!
-    author: User!
-    userId: String!
-    VocabularySentence: [VocabularySentence]!
+    jlpt: Int
     createdAt: DateTime!
     updatedAt: DateTime!
+  }
+
+  type Query {
+    findVocabularies(character: String!): [VocabularyKanji!]!
   }
 `

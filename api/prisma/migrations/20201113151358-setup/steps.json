@@ -819,7 +819,42 @@
       "model": "Kanji",
       "field": "jlpt",
       "type": "Int",
-      "arity": "Required"
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Kanji",
+      "field": "frequency",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Kanji",
+      "field": "rtkOldIndex",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Kanji",
+      "field": "rtkNewIndex",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Kanji",
+      "field": "WaniKaniIndex",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Kanji",
+      "field": "meaning",
+      "type": "String",
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",

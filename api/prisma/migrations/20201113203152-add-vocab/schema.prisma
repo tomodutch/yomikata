@@ -2,7 +2,7 @@ datasource DS {
   // optionally set multiple providers
   // example: provider = ["sqlite", "postgresql"]
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -20,20 +20,20 @@ model Vocabulary {
   jlpt               Int?
   author             User                 @relation(fields: [userId], references: [id])
   userId             String
+  VocabularySentence VocabularySentence[]
   createdAt          DateTime             @default(now())
   updatedAt          DateTime             @default(now())
   VocabularyKanji    VocabularyKanji[]
-  VocabularySentence VocabularySentence[]
 }
 
 model VocabularyKanji {
-  id             String      @id @default(cuid())
-  createdAt      DateTime    @default(now())
-  updatedAt      DateTime    @default(now())
-  Vocabulary     Vocabulary? @relation(fields: [vocabularyId], references: [id])
-  vocabularyId   String?
-  Kanji          Kanji?      @relation(fields: [kanjiCharacter], references: [character])
-  kanjiCharacter String?
+  id           String     @id @default(cuid())
+  vocabulary   Vocabulary @relation(fields: [vocabularyId], references: [id])
+  sentence     Sentence   @relation(fields: [sentenceId], references: [id])
+  vocabularyId String
+  sentenceId   String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @default(now())
 }
 
 model Sentence {
@@ -43,6 +43,7 @@ model Sentence {
   VocabularySentence VocabularySentence[]
   createdAt          DateTime             @default(now())
   updatedAt          DateTime             @default(now())
+  VocabularyKanji    VocabularyKanji[]
 }
 
 model VocabularySentence {
@@ -66,19 +67,18 @@ model KanjiSentence {
 }
 
 model Kanji {
-  character       String            @id
-  jlpt            Int?
-  frequency       Int?
-  rtkOldIndex     Int?
-  rtkNewIndex     Int?
-  WaniKaniIndex   Int?
-  meaning         String?
-  author          User              @relation(fields: [userId], references: [id])
-  userId          String
-  KanjiSentence   KanjiSentence[]
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @default(now())
-  VocabularyKanji VocabularyKanji[]
+  character     String          @id
+  jlpt          Int?
+  frequency     Int?
+  rtkOldIndex   Int?
+  rtkNewIndex   Int?
+  WaniKaniIndex Int?
+  meaning       String?
+  author        User            @relation(fields: [userId], references: [id])
+  userId        String
+  KanjiSentence KanjiSentence[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @default(now())
 }
 
 model User {

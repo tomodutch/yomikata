@@ -11,6 +11,8 @@ Practice and learn the readings of words in Japanese
 ## Status
 Work in progess
 
+![preview](documentation/demo-images/yomikata-preview.png)
+
 ## Getting Started
 This project uses redwoodjs
 

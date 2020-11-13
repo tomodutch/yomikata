@@ -1,0 +1,137 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "DeleteField",
+      "model": "Sentence",
+      "field": "VocabularyKanji"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Kanji",
+      "field": "VocabularyKanji",
+      "type": "VocabularyKanji",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateField",
+      "model": "VocabularyKanji",
+      "field": "Vocabulary",
+      "type": "Vocabulary",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "VocabularyKanji",
+          "field": "Vocabulary"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "VocabularyKanji",
+          "field": "Vocabulary"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[vocabularyId]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "VocabularyKanji",
+          "field": "Vocabulary"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "VocabularyKanji",
+      "field": "Kanji",
+      "type": "Kanji",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "VocabularyKanji",
+          "field": "Kanji"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "VocabularyKanji",
+          "field": "Kanji"
+        },
+        "directive": "relation"
+      },
+      "argument": "fields",
+      "value": "[kanjiCharacter]"
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "VocabularyKanji",
+          "field": "Kanji"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[character]"
+    },
+    {
+      "tag": "CreateField",
+      "model": "VocabularyKanji",
+      "field": "kanjiCharacter",
+      "type": "String",
+      "arity": "Optional"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "VocabularyKanji",
+      "field": "vocabulary"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "VocabularyKanji",
+      "field": "sentence"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "VocabularyKanji",
+      "field": "sentenceId"
+    },
+    {
+      "tag": "UpdateField",
+      "model": "VocabularyKanji",
+      "field": "vocabularyId",
+      "arity": "Optional"
+    }
+  ]
+}

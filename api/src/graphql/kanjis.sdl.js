@@ -1,7 +1,9 @@
 export const schema = gql`
   type Kanji {
     character: String!
-    jlpt: Int!
+    frequency: Int
+    jlpt: Int
+    meaning: String
     author: User!
     userId: String!
     createdAt: DateTime!
@@ -9,6 +11,7 @@ export const schema = gql`
   }
 
   type Query {
+    getKanji(jlpt: Int): [Kanji!]!
     findKanji(character: String!): Kanji!
   }
 `
