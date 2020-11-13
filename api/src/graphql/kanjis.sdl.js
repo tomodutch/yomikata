@@ -1,13 +1,14 @@
 export const schema = gql`
-  type Vocabulary {
-    id: String!
-    word: String!
-    furigana: String!
+  type Kanji {
+    character: String!
     jlpt: Int!
     author: User!
     userId: String!
-    VocabularySentence: [VocabularySentence]!
     createdAt: DateTime!
     updatedAt: DateTime!
+  }
+
+  type Query {
+    findKanji(character: String!): Kanji!
   }
 `
