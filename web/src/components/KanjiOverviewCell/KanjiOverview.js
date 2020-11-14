@@ -2,7 +2,7 @@ import * as B from 'react-bulma-components'
 import { routes, navigate } from '@redwoodjs/router'
 
 export const KanjiOverview = ({ kanji }) => {
-  const chunks = chunk(kanji, 6)
+  const chunks = chunk(kanji, 3)
   return (
     <B.Container>
       <B.Section>
@@ -21,7 +21,7 @@ export const KanjiOverview = ({ kanji }) => {
                           })
                         )
                       }}
-                      className="has-text-centered is-size-4"
+                      className="has-text-centered is-size-5"
                     >
                       {kanji.character}
                     </td>

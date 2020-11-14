@@ -2179,6 +2179,21 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@redwoodjs/api-server@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@redwoodjs/api-server/-/api-server-0.20.0.tgz#bbf6c41912e06f82bf89cc9e30eaf84518f64be4"
+  integrity sha512-OCqModgT/Y3ZoWmGYtImVizoaVjEV6ewfpCQY8DPfWDuXckNp/YzvgL9LK4aNxa6lMNrL50u2piglOrxhOmURA==
+  dependencies:
+    "@babel/register" "^7.9.0"
+    body-parser "^1.19.0"
+    express "^4.17.1"
+    morgan "^1.10.0"
+    qs "^6.9.3"
+    require-dir "^1.2.0"
+    yargs "^16.0.3"
+    youch "^2.1.1"
+    youch-terminal "^1.0.1"
+
 "@redwoodjs/api@^0.20.0":
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/@redwoodjs/api/-/api-0.20.0.tgz#1737a21c2cd3219760d29d3516bb479fd610d0c4"

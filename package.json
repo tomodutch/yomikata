@@ -6,6 +6,9 @@
       "web"
     ]
   },
+  "scripts": {
+    "start": "api-server -f ./api/dist/functions"
+  },
   "devDependencies": {
     "@redwoodjs/core": "^0.20.0"
   },

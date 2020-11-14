@@ -1,0 +1,13 @@
+node_modules
+api/node_modules
+api/dist
+web/node_modules
+web/dist
+
+.idea
+.DS_Store
+.env
+.netlify
+.redwood
+yarn-error.log
+web/public/mockServiceWorker.js

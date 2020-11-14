@@ -2,6 +2,8 @@
 Practice and learn the readings of words in Japanese
 漢字の読み方を教えると単語練習のアプリです
 
+https://yomikata.ninja
+
 - [Yomikata 「読み方」](#yomikata-読み方)
   - [Status](#status)
   - [Getting Started](#getting-started)
@@ -11,6 +13,9 @@ Practice and learn the readings of words in Japanese
 ## Status
 Work in progess
 
+https://yomikata.ninja
+
+![preview2](documentation/demo-images/yomikata-preview2.png)
 ![preview](documentation/demo-images/yomikata-preview.png)
 
 ## Getting Started
