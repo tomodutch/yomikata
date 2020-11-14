@@ -1,17 +1,21 @@
 import { routes, Link } from '@redwoodjs/router'
+import * as B from 'react-bulma-components'
 
 const MarketingLayoutLayout = ({ children }) => {
   return (
     <>
       <header>
-        <ul>
-          <li>
-            <Link to={routes.home()}>Home</Link>
-          </li>
-          <li>
-            <Link to={routes.about()}>About</Link>
-          </li>
-        </ul>
+        <B.Navbar color="info">
+          <B.Navbar.Brand>
+            <B.Navbar.Item renderAs={Link} to={routes.home()}>
+              読み方
+            </B.Navbar.Item>
+            <B.Navbar.Burger />
+          </B.Navbar.Brand>
+          <B.Navbar.Menu>
+            <B.Navbar.Container></B.Navbar.Container>
+          </B.Navbar.Menu>
+        </B.Navbar>
       </header>
       <main>{children}</main>
     </>

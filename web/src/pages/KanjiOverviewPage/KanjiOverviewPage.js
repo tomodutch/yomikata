@@ -1,12 +1,13 @@
 import KanjiOverviewCell from 'src/components/KanjiOverviewCell/KanjiOverviewCell'
 import { useState } from 'react'
 import { Form, SelectField } from '@redwoodjs/forms'
+import MarketingLayoutLayout from 'src/layouts/MarketingLayoutLayout/MarketingLayoutLayout'
 
 const KanjiOverviewPage = () => {
   const [jlpt, setJlpt] = useState(0)
 
   return (
-    <>
+    <MarketingLayoutLayout>
       <Form>
         <SelectField
           value={jlpt}
@@ -24,7 +25,7 @@ const KanjiOverviewPage = () => {
         </SelectField>
       </Form>
       <KanjiOverviewCell jlpt={jlpt === 0 ? undefined : jlpt} />
-    </>
+    </MarketingLayoutLayout>
   )
 }
 

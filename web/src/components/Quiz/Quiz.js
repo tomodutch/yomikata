@@ -1,6 +1,8 @@
-import { Form, Submit, TextField } from '@redwoodjs/forms'
+import { routes, Link } from '@redwoodjs/router'
+import { Form, TextField } from '@redwoodjs/forms'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
+import * as B from 'react-bulma-components'
 
 export const Quiz = ({ vocabularies }) => {
   const randomWord = () =>
@@ -8,31 +10,62 @@ export const Quiz = ({ vocabularies }) => {
   const [state, setState] = useState({ word: randomWord(), answer: null })
   const formMethods = useForm()
   const { word, answer } = state
-  const isCorrect = state.answer === word?.Vocabulary?.furigana
+  // const isCorrect = state.answer === word?.Vocabulary?.furigana
 
   return (
-    <main>
-      <section>
-        <Form
-          formMethods={formMethods}
-          onSubmit={({ answer: newAnswer }) => {
-            if (answer === null) {
-              setState({ ...state, answer: newAnswer })
-            } else {
-              setState({ ...state, answer: null, word: randomWord() })
-            }
+    <Form
+      formMethods={formMethods}
+      onSubmit={({ answer: newAnswer }) => {
+        if (answer === null) {
+          setState({ ...state, answer: newAnswer })
+        } else {
+          setState({ ...state, answer: null, word: randomWord() })
+        }
 
-            formMethods.reset()
-          }}
-        >
-          <h1>{word?.Vocabulary?.word}</h1>
-          {answer && <h2>{word?.Vocabulary?.furigana}</h2>}
-          <b>{answer && isCorrect && 'corrent!'}</b>
-          {answer === null && <TextField name="answer" required autofocus />}
-          <Submit>{answer === null ? 'answer' : 'next'}</Submit>
-        </Form>
-      </section>
-    </main>
+        formMethods.reset()
+      }}
+    >
+      <B.Hero color="info" size="fullheight">
+        <B.Hero.Head>
+          <B.Container>
+            <B.Section>
+              <B.Button
+                inverted={true}
+                color="info"
+                outlined={true}
+                renderAs={Link}
+                to={routes.home()}
+              >
+                Back
+              </B.Button>
+            </B.Section>
+          </B.Container>
+        </B.Hero.Head>
+        <B.Hero.Body>
+          <B.Container>
+            <B.Section className="has-text-centered">
+              <B.Heading size={1}>{word?.Vocabulary?.word}</B.Heading>
+              {answer && (
+                <B.Heading subtitle size={3}>
+                  {word?.Vocabulary?.furigana}
+                </B.Heading>
+              )}
+            </B.Section>
+          </B.Container>
+        </B.Hero.Body>
+        <B.Hero.Footer>
+          <B.Container>
+            <B.Section>
+              <TextField
+                autoFocus={true}
+                className="input is-large"
+                name="answer"
+              />
+            </B.Section>
+          </B.Container>
+        </B.Hero.Footer>
+      </B.Hero>
+    </Form>
   )
 }
 

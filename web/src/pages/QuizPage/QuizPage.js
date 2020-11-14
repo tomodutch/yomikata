@@ -1,11 +1,7 @@
 import QuizCell from 'src/components/Quiz/QuizCell'
 
 const QuizPage = ({ character }) => {
-  return (
-    <div className="container">
-      <QuizCell character={decodeURI(character)} />
-    </div>
-  )
+  return <QuizCell character={decodeURI(character)} />
 }
 
 export default QuizPage

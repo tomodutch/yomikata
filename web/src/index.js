@@ -4,6 +4,7 @@ import FatalErrorPage from 'src/pages/FatalErrorPage'
 
 import Routes from 'src/Routes'
 
+import 'react-bulma-components/dist/react-bulma-components.min.css'
 import './index.css'
 
 ReactDOM.render(
