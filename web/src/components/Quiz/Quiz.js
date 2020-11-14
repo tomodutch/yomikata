@@ -10,7 +10,10 @@ export const Quiz = ({ vocabularies }) => {
   const [state, setState] = useState({ word: randomWord(), answer: null })
   const formMethods = useForm()
   const { word, answer } = state
-  // const isCorrect = state.answer === word?.Vocabulary?.furigana
+
+  const next = () => {
+    setState({ ...state, answer: null, word: randomWord() })
+  }
 
   return (
     <Form
@@ -19,7 +22,7 @@ export const Quiz = ({ vocabularies }) => {
         if (answer === null) {
           setState({ ...state, answer: newAnswer })
         } else {
-          setState({ ...state, answer: null, word: randomWord() })
+          next()
         }
 
         formMethods.reset()
@@ -45,11 +48,26 @@ export const Quiz = ({ vocabularies }) => {
           <B.Container>
             <B.Section className="has-text-centered">
               <B.Heading size={1}>{word?.Vocabulary?.word}</B.Heading>
-              {answer && (
-                <B.Heading subtitle size={3}>
-                  {word?.Vocabulary?.furigana}
-                </B.Heading>
-              )}
+              <B.Heading
+                subtitle
+                size={3}
+                className={answer ? '' : 'inivisble'}
+              >
+                {word?.Vocabulary?.furigana}
+              </B.Heading>
+              <B.Button
+                onClick={(_) => {
+                  if (answer) {
+                    next()
+                  } else {
+                    setState({ ...state, answer: 'Skip' })
+                  }
+                }}
+                color="info"
+                type="button"
+              >
+                {answer ? 'next' : 'show'}
+              </B.Button>
             </B.Section>
           </B.Container>
         </B.Hero.Body>
